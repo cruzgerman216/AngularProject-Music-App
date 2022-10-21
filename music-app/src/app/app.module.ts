@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { MusicListComponent } from './music-list/music-list.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { MusicEditComponent } from './music-list/music-edit/music-edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     MusicListComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    MusicEditComponent
   ],
   imports: [
     BrowserModule,
