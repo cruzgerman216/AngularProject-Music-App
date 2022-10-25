@@ -9,38 +9,46 @@
           class="form-control"
           formControlName="artist">
 
-          <label for="title">Album Title:</label>
-          <input
-            type="text"
-            id="title"
-            class="form-control"
-            formControlName="title">
+        <label for="title">Album Title:</label>
+        <input
+          type="text"
+          id="title"
+          class="form-control"
+          formControlName="title">
 
-          <label for="genre">Genre:</label>
-          <input
-            type="text"
-            id="genre"
-            class="form-control"
-            formControlName="genre">
+        <label for="genre">Genre:</label>
+        <input
+          type="text"
+          id="genre"
+          class="form-control"
+          formControlName="genre">
 
-          <label for="rlYear">Release Year(YYYY):</label>
-          <input
-            type="number"
-            formControlName="rlYear"
-            id="rlYear"
-            min="1900"
-            max="2999"
-            class="form-control"
-            placeholder="YYYY">
+        <label for="rlYear">Release Year(YYYY):</label>
+        <input
+          type="number"
+          formControlName="rlYear"
+          id="rlYear"
+          min="1900"
+          max="2999"
+          class="form-control"
+          placeholder="YYYY">
 
-          <label for="genre">Cover Art:</label>
-          <input
-            type="text"
-            id="cover"
-            class="form-control"
-            formControlName="cover">
-          <img src="" alt="">
+        <label for="genre">Cover Art:</label>
+        <input
+          type="text"
+          id="cover"
+          class="form-control"
+          formControlName="cover"
+          #albumCover>
+        <img [src]="albumCover.value" class="img-responsive">
 
+        <div
+          class="row"
+          *ngFor="let trackCtrl of controls; let i = index"
+          [formGroupName] = "i">
+
+
+        </div>
 
       </div>
     </form>
