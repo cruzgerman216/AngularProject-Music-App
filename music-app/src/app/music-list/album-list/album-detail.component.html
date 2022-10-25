@@ -3,14 +3,13 @@
   routerLinkActive="active"
   style="cursor: pointer"
   class="list-group-item">
-  <div class="card" style="width: 18rem;">
+  <div class="card" style="width: 425px; text-align: center;">
     <img
       [src]="album.coverArt"
       alt="{{ album.title }}"
       class="card-img-top">
       <div class="card-body">
         <h4 class="card-text">{{ album.artist }} - {{ album.title }}</h4>
-        <p class="card-text"> Release: ({{album.releaseYear}}), Genre: {{ album.genre}} </p>
       </div>
   </div>
 </a>

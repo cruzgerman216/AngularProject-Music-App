@@ -7,8 +7,9 @@ import { HeaderComponent } from './header/header.component';
 import { MusicListComponent } from './music-list/music-list.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { MusicEditComponent } from './music-list/music-edit/music-edit.component';
-import { AlbumDetailComponent } from './music-list/album-detail/album-detail.component';
-import { FormsModule } from '@angular/forms';
+import { AlbumDetailComponent } from './music-list/album-list/album-detail.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AlbumInfoComponent } from './music-list/album-list/album-info/album-info.component';
 
 @NgModule({
   declarations: [
@@ -17,12 +18,14 @@ import { FormsModule } from '@angular/forms';
     MusicListComponent,
     LandingPageComponent,
     MusicEditComponent,
-    AlbumDetailComponent
+    AlbumDetailComponent,
+    AlbumInfoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
