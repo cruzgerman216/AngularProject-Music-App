@@ -8,6 +8,7 @@ import { MusicListComponent } from './music-list/music-list.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { MusicEditComponent } from './music-list/music-edit/music-edit.component';
 import { AlbumDetailComponent } from './music-list/album-detail/album-detail.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AlbumDetailComponent } from './music-list/album-detail/album-detail.com
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

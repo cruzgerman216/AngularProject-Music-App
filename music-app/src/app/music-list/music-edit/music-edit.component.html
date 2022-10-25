@@ -1,2 +1,33 @@
-<p>music-edit works!</p>
+<div class="row">
+  <div class="col-xs 12">
+    <form (ngSubmit)="onSubmit(albumEditForm)" #albumEditForm="ngForm">
+      <div class="row">
+      <label for="artist">Artist: </label>
+        <input
+          type="text"
+          id="artist"
+          class="form-control"
+          name="artist"
+          ngModel
+          required>
+          <label for="title">Album Title: </label>
+          <input
+            type="text"
+            id="title"
+            class="form-control"
+            name="title"
+            ngModel
+            required>
+
+          <label for="genre">Genre </label>
+            <input
+              type="text"
+              id="genre"
+              class="form-control"
+              name="genre"
+              ngModel>
+      </div>
+    </form>
+  </div>
+</div>
 

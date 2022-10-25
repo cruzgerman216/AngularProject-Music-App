@@ -1,9 +1,17 @@
 <div class="container">
   <h1 style="text-align: center;">Music List</h1>
+  <hr>
   <div class="row">
-    <div class="col"></div>
-    <div class="col-6"></div>
+    <div class="col">
+      <button class="btn btn-info" (click)="onNewRecipe()">New Album</button>
+    </div>
+    <div class="col-6">
+      <app-album-detail
+      *ngFor="let albumElem of albums; let i = index"
+      [album]="albumElem"
+      [index]= "i"></app-album-detail>
+    </div>
     <div class="col"><router-outlet></router-outlet></div>
   </div>
-  
+
 </div>

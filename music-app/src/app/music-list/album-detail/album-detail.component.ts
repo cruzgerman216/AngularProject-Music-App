@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Album } from 'src/app/shared/album.model';
 
 @Component({
@@ -7,7 +7,8 @@ import { Album } from 'src/app/shared/album.model';
   styleUrls: ['./album-detail.component.css']
 })
 export class AlbumDetailComponent implements OnInit {
-  album: Album;
+  @Input() album: Album;
+  @Input() index: number;
 
   constructor() { }
 

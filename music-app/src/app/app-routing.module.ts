@@ -12,7 +12,6 @@ const routes: Routes = [
   {path: 'musiclist', component: MusicListComponent, children:[
     {path: 'new', component: MusicEditComponent}
   ]},
-  {path: 'id', component: AlbumDetailComponent}
 ];
 
 @NgModule({

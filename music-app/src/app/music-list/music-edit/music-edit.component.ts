@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-music-edit',
@@ -12,4 +13,7 @@ export class MusicEditComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onSubmit(albumEditForm: NgForm){
+    
+  }
 }
