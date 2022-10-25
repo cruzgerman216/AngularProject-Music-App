@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { MusicListComponent } from './music-list/music-list.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { MusicEditComponent } from './music-list/music-edit/music-edit.component';
+import { AlbumDetailComponent } from './music-list/album-detail/album-detail.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { MusicEditComponent } from './music-list/music-edit/music-edit.component
     HeaderComponent,
     MusicListComponent,
     LandingPageComponent,
-    MusicEditComponent
+    MusicEditComponent,
+    AlbumDetailComponent
   ],
   imports: [
     BrowserModule,
