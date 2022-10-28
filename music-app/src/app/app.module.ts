@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +12,8 @@ import { AlbumDetailComponent } from './music-list/album-list/album-detail.compo
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AlbumInfoComponent } from './music-list/album-list/album-info/album-info.component';
 import { AuthComponent } from './shared/auth/auth.component';
+import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
+
 
 @NgModule({
   declarations: [
@@ -21,12 +24,14 @@ import { AuthComponent } from './shared/auth/auth.component';
     MusicEditComponent,
     AlbumDetailComponent,
     AlbumInfoComponent,
-    AuthComponent
+    AuthComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
     ReactiveFormsModule,
   ],
   providers: [],
