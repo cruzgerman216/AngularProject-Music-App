@@ -10,6 +10,7 @@ import { MusicEditComponent } from './music-list/music-edit/music-edit.component
 import { AlbumDetailComponent } from './music-list/album-list/album-detail.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AlbumInfoComponent } from './music-list/album-list/album-info/album-info.component';
+import { AuthComponent } from './shared/auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { AlbumInfoComponent } from './music-list/album-list/album-info/album-inf
     LandingPageComponent,
     MusicEditComponent,
     AlbumDetailComponent,
-    AlbumInfoComponent
+    AlbumInfoComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
