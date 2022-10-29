@@ -15,14 +15,17 @@
       <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" routerLink="/home">Home</a>
       </li>
-      <li class="nav-item" routerLinkActive="active">
+      <li class="nav-item" routerLinkActive="active" *ngIf="isLoggedIn">
         <a class="nav-link"  routerLink="/musiclist">Music List</a>
       </li>
-      <li class="nav-item" routerLinkActive="active">
+      <li class="nav-item" routerLinkActive="active" *ngIf="isLoggedIn">
         <a class="nav-link" href="#">Profile</a>
       </li>
-      <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" routerLink="/auth"><button class="btn btn-dark">Signup/Login</button></a>
+      <li class="nav-item" routerLinkActive="active" *ngIf="isLoggedIn">
+        <a class="nav-link" routerLink="/home"><button type="button" class="btn btn-dark" (click)="onLogout()">Logout</button></a>
+      </li>
+      <li class="nav-item" routerLinkActive="active" *ngIf="!isLoggedIn">
+        <a class="nav-link" routerLink="/auth"><button type="button" class="btn btn-dark">Signup/Login</button></a>
       </li>
     </ul>
   </div>
