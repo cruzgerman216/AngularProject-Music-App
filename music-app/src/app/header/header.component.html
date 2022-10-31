@@ -22,10 +22,14 @@
         <a class="nav-link" href="#">Profile</a>
       </li>
       <li class="nav-item" routerLinkActive="active" *ngIf="isLoggedIn">
-        <a class="nav-link" routerLink="/home"><button type="button" class="btn btn-dark" (click)="onLogout()">Logout</button></a>
+        <a class="nav-link" routerLink="/home">
+          <button type="button" class="btn btn-dark" (click)="onLogout()">Logout</button>
+        </a>
       </li>
       <li class="nav-item" routerLinkActive="active" *ngIf="!isLoggedIn">
-        <a class="nav-link" routerLink="/auth"><button type="button" class="btn btn-dark">Signup/Login</button></a>
+        <a class="nav-link" routerLink="/auth">
+          <button type="button" class="btn btn-dark">Signup/Login</button>
+        </a>
       </li>
     </ul>
   </div>

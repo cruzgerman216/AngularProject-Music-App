@@ -1,13 +1,21 @@
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Subject } from "rxjs";
+import { Spotify } from "angular-spotify";
+
 import { Album } from "../shared/album.model";
 import { Tracklist } from "../shared/trackList.model";
+
+const CLIENT_ID = "86c3692b956f4c72a651bbc1f954c2ef";
+const CLIENT_SECRET = "1d009847f7a24d009a17e5490c119cc2";
+const REDIRECT_URI = "localhost:4200/musiclist";
 
 @Injectable({
   providedIn: 'root'
 })
 export class MusicListService{
   albumChanged = new Subject<Album[]>();
+  constructor(private http: HttpClient){}
 
   private album: Album[] = [
     new Album('MGMT', 'Time to Pretend', 'https://upload.wikimedia.org/wikipedia/en/a/aa/MGMT_-_Time_to_Pretend_EP.png',
@@ -51,4 +59,15 @@ export class MusicListService{
     this.getAlbums[index] = newAlbum;
     this.albumChanged.next(this.album.slice());
   }
+
+  searchMusic(result?: string){
+    // const query = result.split(' ').join('').toLowerCase();
+    this.http.get(`https://api.spotify.com/v1/search?type=album:Nas`).subscribe(
+      (response) => {
+        console.log(response);
+      }
+    );
+  }
+
+
 }

@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AlbumInfoComponent } from './music-list/album-list/album-info/album-info.component';
 import { AuthComponent } from './shared/auth/auth.component';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
+import { MusicSearchComponent } from './music-list/music-search/music-search/music-search.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinne
     AlbumDetailComponent,
     AlbumInfoComponent,
     AuthComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    MusicSearchComponent
   ],
   imports: [
     BrowserModule,
