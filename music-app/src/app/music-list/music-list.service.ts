@@ -1,7 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Subject } from "rxjs";
-import { Spotify } from "angular-spotify";
 
 import { Album } from "../shared/album.model";
 import { Tracklist } from "../shared/trackList.model";

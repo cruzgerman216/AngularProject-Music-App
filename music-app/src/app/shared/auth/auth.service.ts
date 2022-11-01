@@ -1,4 +1,4 @@
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { BehaviorSubject, tap } from "rxjs";
@@ -6,6 +6,9 @@ import { User } from "./user.model";
 
 const SIGNUP_KEY = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAklE7r4FP7CvxWyMmJ3YKXBE5pA6pTocU';
 const LOGIN_KEY = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAklE7r4FP7CvxWyMmJ3YKXBE5pA6pTocU';
+// const CLIENT_ID = '86c3692b956f4c72a651bbc1f954c2ef';
+// const CLIENT_SECRET = '1d009847f7a24d009a17e5490c119cc2';
+// const REDIRECT_URI = 'localhost:4200/musiclist';
 
 export interface AuthResponseData {
   kind?: string;
@@ -43,6 +46,7 @@ export class AuthService{
       );
     }))
   }
+
 
   login(email: string, password: string){
     return this.http.post<AuthResponseData>(LOGIN_KEY,

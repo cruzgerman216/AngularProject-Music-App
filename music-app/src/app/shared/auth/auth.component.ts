@@ -1,9 +1,14 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { catchError, Observable } from 'rxjs';
 
 import { AuthResponseData, AuthService } from './auth.service';
+
+const CLIENT_ID = '86c3692b956f4c72a651bbc1f954c2ef';
+const CLIENT_SECRET = '1d009847f7a24d009a17e5490c119cc2';
+const REDIRECT_URI = 'http://localhost:4200/musiclist/';
 
 @Component({
   selector: 'app-auth',
@@ -14,7 +19,7 @@ export class AuthComponent implements OnInit {
   isLoading = false;
   isLoginMode = false;
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router, private http: HttpClient) { }
 
   ngOnInit(): void {
   }
@@ -22,6 +27,29 @@ export class AuthComponent implements OnInit {
   toggleLogin(){
     this.isLoginMode = !this.isLoginMode;
   }
+
+  // headers = new HttpHeaders({
+  //   'Content-Type' : 'application/x-www-form-urlencoded',
+  //   'Authorization' : `Basic<base64 encoded ${CLIENT_ID}:${CLIENT_SECRET}`
+  // })
+
+  spotifyLogin(){
+    return this.http.get(
+      'https://accounts.spotify.com/authorize',
+      {params: {
+        'client_id' : CLIENT_ID,
+        'response_type' : 'code',
+        'redirect_uri' : REDIRECT_URI}
+      }).pipe(catchError((err) => {
+        console.log(err);
+        throw err;
+      })).subscribe(
+        response => {
+          console.log(response)
+        }
+      );
+  }
+
 
   onSubmit(form: NgForm){
     console.log(form);
