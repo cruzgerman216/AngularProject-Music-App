@@ -28,27 +28,27 @@ export class AuthComponent implements OnInit {
     this.isLoginMode = !this.isLoginMode;
   }
 
-  // headers = new HttpHeaders({
-  //   'Content-Type' : 'application/x-www-form-urlencoded',
-  //   'Authorization' : `Basic<base64 encoded ${CLIENT_ID}:${CLIENT_SECRET}`
-  // })
 
   spotifyLogin(){
-    return this.http.get(
-      'https://accounts.spotify.com/authorize',
-      {params: {
-        'client_id' : CLIENT_ID,
-        'response_type' : 'code',
-        'redirect_uri' : REDIRECT_URI}
-      }).pipe(catchError((err) => {
-        console.log(err);
-        throw err;
-      })).subscribe(
-        response => {
-          console.log(response)
-        }
-      );
+    this.authService.spotifyLogin();
   }
+
+  // spotifyLogin(){
+  //   return this.http.get(
+  //     'https://accounts.spotify.com/authorize',
+  //     {params: {
+  //       'client_id' : CLIENT_ID,
+  //       'response_type' : 'code',
+  //       'redirect_uri' : REDIRECT_URI}
+  //     }).pipe(catchError((err) => {
+  //       console.log(err);
+  //       throw err;
+  //     })).subscribe(
+  //       response => {
+  //         console.log(response)
+  //       }
+  //     );
+  // }
 
 
   onSubmit(form: NgForm){

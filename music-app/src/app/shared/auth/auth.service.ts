@@ -1,14 +1,14 @@
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
-import { BehaviorSubject, tap } from "rxjs";
+import { BehaviorSubject, catchError, tap } from "rxjs";
 import { User } from "./user.model";
 
 const SIGNUP_KEY = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAklE7r4FP7CvxWyMmJ3YKXBE5pA6pTocU';
 const LOGIN_KEY = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAklE7r4FP7CvxWyMmJ3YKXBE5pA6pTocU';
-// const CLIENT_ID = '86c3692b956f4c72a651bbc1f954c2ef';
-// const CLIENT_SECRET = '1d009847f7a24d009a17e5490c119cc2';
-// const REDIRECT_URI = 'localhost:4200/musiclist';
+const CLIENT_ID = '86c3692b956f4c72a651bbc1f954c2ef';
+const CLIENT_SECRET = '1d009847f7a24d009a17e5490c119cc2';
+const REDIRECT_URI = 'http://localhost:4200/musiclist/';
 
 export interface AuthResponseData {
   kind?: string;
@@ -63,6 +63,31 @@ export class AuthService{
         +resData.expiresIn
       );
     }))
+  }
+
+  // headers = new HttpHeaders({
+  //   'Content-Type' : 'application/x-www-form-urlencoded',
+  //   'Authorization' : `Basic<base64 encoded ${CLIENT_ID}:${CLIENT_SECRET}`
+  // })
+
+
+  spotifyLogin(){
+    return this.http.get(
+      'https://accounts.spotify.com/authorize',
+      {params: {
+        'client_id' : CLIENT_ID,
+        'response_type' : 'code',
+        'redirect_uri' : REDIRECT_URI,
+        'scope' : 'user-read-private user-read-email',
+        'show_dialog': true }
+      }).pipe(catchError((err) => {
+        console.log(err);
+        throw err;
+      })).subscribe(
+        response => {
+          console.log(response)
+        }
+      );
   }
 
   logout(){
