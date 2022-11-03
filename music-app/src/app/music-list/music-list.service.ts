@@ -21,7 +21,7 @@ export class MusicListService{
     'Synthpop', 2005, [
       new Tracklist(1, 'Time to Pretend'),
       new Tracklist(2, 'Boogie Down'),
-      new Tracklist(3, 'Detrokk'),
+      new Tracklist(3, 'Destrokk'),
       new Tracklist(4, 'Love Always Remains'),
       new Tracklist(5, 'Indie Rokkers'),
       new Tracklist(6, 'Kids'),

@@ -5,6 +5,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { AlbumInfoComponent } from './music-list/album-list/album-info/album-info.component';
 import { MusicEditComponent } from './music-list/music-edit/music-edit.component';
 import { MusicListComponent } from './music-list/music-list.component';
+import { ProfileComponent } from './profile/profile.component';
 import { AuthComponent } from './shared/auth/auth.component';
 
 const routes: Routes = [
@@ -15,7 +16,8 @@ const routes: Routes = [
     {path: ':id', component: AlbumInfoComponent},
     {path: ':id/edit', component: MusicEditComponent},
   ]},
-  {path: 'auth', component: AuthComponent}
+  { path: 'auth', component: AuthComponent },
+  { path: 'profile', component: ProfileComponent }
 ];
 
 @NgModule({

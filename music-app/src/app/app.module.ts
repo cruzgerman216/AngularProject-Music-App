@@ -14,6 +14,7 @@ import { AlbumInfoComponent } from './music-list/album-list/album-info/album-inf
 import { AuthComponent } from './shared/auth/auth.component';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 import { MusicSearchComponent } from './music-list/music-search/music-search/music-search.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { MusicSearchComponent } from './music-list/music-search/music-search/mus
     AlbumInfoComponent,
     AuthComponent,
     LoadingSpinnerComponent,
-    MusicSearchComponent
+    MusicSearchComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

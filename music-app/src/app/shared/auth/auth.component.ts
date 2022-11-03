@@ -30,7 +30,25 @@ export class AuthComponent implements OnInit {
 
 
   spotifyLogin(){
+<<<<<<< Updated upstream
     this.authService.spotifyLogin();
+=======
+    this.isLoginMode = !this.isLoginMode;
+    return this.http.get(
+      'https://accounts.spotify.com/authorize',
+      {params: {
+        'client_id' : CLIENT_ID,
+        'response_type' : 'code',
+        'redirect_uri' : REDIRECT_URI}
+      }).pipe(catchError((err) => {
+        console.log(err);
+        throw err;
+      })).subscribe(
+        response => {
+          console.log(response)
+        }
+      );
+>>>>>>> Stashed changes
   }
 
   // spotifyLogin(){
@@ -59,7 +77,7 @@ export class AuthComponent implements OnInit {
 
     let authObs: Observable<AuthResponseData>;
 
-    this.isLoading
+    this.isLoading = true;
 
     if(this.isLoginMode){
       authObs = this.authService.login(email, password)
