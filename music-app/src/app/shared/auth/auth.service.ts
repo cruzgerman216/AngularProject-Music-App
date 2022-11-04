@@ -65,21 +65,50 @@ export class AuthService{
     }))
   }
 
-  // headers = new HttpHeaders({
-  //   'Content-Type' : 'application/x-www-form-urlencoded',
-  //   'Authorization' : `Basic<base64 encoded ${CLIENT_ID}:${CLIENT_SECRET}`
-  // })
+  autoLogin(){
+    const userData: {
+      email: string,
+      id: string,
+      _token: string,
+      _tokenExpirationDate: string
+    } = JSON.parse(localStorage.getItem('userData'));
+    if(!userData){
+      return;
+    }
+
+    const loadedUser = new User(
+      userData.email,
+      userData.id,
+      userData._token,
+      new Date(userData._tokenExpirationDate)
+    );
+
+    if(loadedUser.token){
+      this.user.next(loadedUser);
+      const expirationDuration =
+        new Date(userData._tokenExpirationDate).getTime() -
+        new Date().getTime();
+      this.autoLogout(expirationDuration);
+    }
+  }
+
+  private headers = new HttpHeaders({
+    'Access-Control-Allow-Origin': 'http://localhost:4200',
+    // 'Content-Type' : 'application/x-www-form-urlencoded',
+    // 'Authorization' : `Basic<base64 encoded ${CLIENT_ID}:${CLIENT_SECRET}`
+  })
 
 
   spotifyLogin(){
     return this.http.get(
-      'https://accounts.spotify.com/authorize',
+      'http://accounts.spotify.com/authorize',
       {params: {
         'client_id' : CLIENT_ID,
         'response_type' : 'code',
         'redirect_uri' : REDIRECT_URI,
         'scope' : 'user-read-private user-read-email',
-        'show_dialog': true }
+        'show_dialog': true },
+        headers: this.headers
       }).pipe(catchError((err) => {
         console.log(err);
         throw err;
