@@ -41,6 +41,11 @@ export class MusicListService{
   ]
   // private album: Album[];
 
+  setAlbums(albums: Album[]) {
+    this.album = albums;
+    this.albumChanged.next(this.album.slice());
+  }
+
   getAlbums(){
     return this.album.slice();
   }
