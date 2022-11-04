@@ -15,6 +15,7 @@ import { AuthComponent } from './shared/auth/auth.component';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 import { MusicSearchComponent } from './music-list/music-search/music-search/music-search.component';
 import { ProfileComponent } from './profile/profile.component';
+import { DropdownDirective } from './shared/dropdown.directive';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { ProfileComponent } from './profile/profile.component';
     AuthComponent,
     LoadingSpinnerComponent,
     MusicSearchComponent,
-    ProfileComponent
+    ProfileComponent,
+    DropdownDirective
   ],
   imports: [
     BrowserModule,

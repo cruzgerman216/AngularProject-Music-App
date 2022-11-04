@@ -1,10 +1,10 @@
 import { Directive, ElementRef, HostBinding, HostListener } from "@angular/core";
 
 @Directive({
-  selector: 'appDropdown'
+  selector: '[appDropdown]'
 })
 export class DropdownDirective{
-  @HostBinding('class') isOpen = false;
+  @HostBinding('class.open') isOpen = false;
 
   constructor(private elementRef: ElementRef){}
 
