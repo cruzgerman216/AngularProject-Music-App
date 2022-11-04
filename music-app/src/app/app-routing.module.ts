@@ -7,6 +7,7 @@ import { MusicEditComponent } from './music-list/music-edit/music-edit.component
 import { MusicListComponent } from './music-list/music-list.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AuthComponent } from './shared/auth/auth.component';
+import { AuthGuard } from './shared/auth/auth.guard';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -17,7 +18,7 @@ const routes: Routes = [
     {path: ':id/edit', component: MusicEditComponent},
   ]},
   { path: 'auth', component: AuthComponent },
-  { path: 'profile', component: ProfileComponent }
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({
