@@ -4,11 +4,14 @@ import { Router } from "@angular/router";
 import { BehaviorSubject, catchError, tap } from "rxjs";
 import { User } from "./user.model";
 
+//Firebase Crendentials
 const SIGNUP_KEY = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyAklE7r4FP7CvxWyMmJ3YKXBE5pA6pTocU';
 const LOGIN_KEY = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAklE7r4FP7CvxWyMmJ3YKXBE5pA6pTocU';
+
+//Spotify Credentials
 const CLIENT_ID = '86c3692b956f4c72a651bbc1f954c2ef';
 const CLIENT_SECRET = '1d009847f7a24d009a17e5490c119cc2';
-const REDIRECT_URI = 'http://localhost:4200/musiclist/';
+const REDIRECT_URI = 'http://localhost:4200/musiclist/callback/';
 
 export interface AuthResponseData {
   kind?: string;
@@ -93,7 +96,8 @@ export class AuthService{
   }
 
   private headers = new HttpHeaders({
-    'Access-Control-Allow-Origin': 'http://localhost:4200',
+    'Access-Control-Allow-Origin': '*',
+    // 'Access-Control-Allow-Credentials': 'true',
     // 'Content-Type' : 'application/x-www-form-urlencoded',
     // 'Authorization' : `Basic<base64 encoded ${CLIENT_ID}:${CLIENT_SECRET}`
   })
@@ -101,7 +105,7 @@ export class AuthService{
 
   spotifyLogin(){
     return this.http.get(
-      'http://accounts.spotify.com/authorize',
+      'https://accounts.spotify.com/authorize',
       {params: {
         'client_id' : CLIENT_ID,
         'response_type' : 'code',

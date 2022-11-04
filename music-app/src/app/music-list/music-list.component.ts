@@ -30,7 +30,7 @@ export class MusicListComponent implements OnInit, OnDestroy {
     this.albums = this.musicListService.getAlbums();
   }
 
-  onNewRecipe(){
+  onNewAlbum(){
     this.router.navigate(['new'], {relativeTo: this.route});
   }
 

@@ -7,7 +7,7 @@ import { Tracklist } from "../shared/trackList.model";
 
 const CLIENT_ID = "86c3692b956f4c72a651bbc1f954c2ef";
 const CLIENT_SECRET = "1d009847f7a24d009a17e5490c119cc2";
-const REDIRECT_URI = "localhost:4200/musiclist";
+const REDIRECT_URI = "localhost:4200/musiclist/";
 
 @Injectable({
   providedIn: 'root'
