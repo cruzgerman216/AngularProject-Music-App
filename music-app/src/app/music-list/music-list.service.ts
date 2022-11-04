@@ -59,6 +59,11 @@ export class MusicListService{
     this.albumChanged.next(this.album.slice());
   }
 
+  deleteAlbum(index: number){
+    this.album.splice(index, 1);
+    this.albumChanged.next(this.album.slice());
+  }
+
   searchMusic(result?: string){
     // const query = result.split(' ').join('').toLowerCase();
     this.http.get(`https://api.spotify.com/v1/search?type=album:Nas`).subscribe(
