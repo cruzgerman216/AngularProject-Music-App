@@ -38,6 +38,22 @@ export class MusicEditComponent implements OnInit {
     }
   }
 
+  onAddTrack(){
+    (<FormArray>this.albumEditForm.get('trackList')).push(
+      new FormGroup({
+        'trackNumber': new FormControl(null, Validators.required),
+        'trackName': new FormControl(null, [
+          Validators.required,
+          Validators.pattern(/^[1-9]+[0-9]*$/)
+        ])
+      })
+    )
+  }
+
+  onDeleteTrack(index: number){
+    (<FormArray>this.albumEditForm.get('trackList')).removeAt(index);
+  }
+
   get controls(){
     return (<FormArray>this.albumEditForm.get('trackList')).controls;
   }
@@ -46,7 +62,7 @@ export class MusicEditComponent implements OnInit {
     let albumArtist = '';
     let albumTitle = '';
     let albumGenre = '';
-    let albumYear;
+    let albumYear: number;
     let albumCover = '';
     let albumTracks = new FormArray([]);
 
