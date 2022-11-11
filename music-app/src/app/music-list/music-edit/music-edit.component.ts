@@ -41,11 +41,8 @@ export class MusicEditComponent implements OnInit {
   onAddTrack(){
     (<FormArray>this.albumEditForm.get('trackList')).push(
       new FormGroup({
-        'trackNumber': new FormControl(null, Validators.required),
-        'trackName': new FormControl(null, [
-          Validators.required,
-          Validators.pattern(/^[1-9]+[0-9]*$/)
-        ])
+        'trackNumber': new FormControl(null, [Validators.required, Validators.pattern(/^[1-9]+[0-9]*$/)]),
+        'trackName': new FormControl(null, Validators.required)
       })
     )
   }

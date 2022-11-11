@@ -17,6 +17,10 @@ export class AlbumDetailComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onEdit(){
+    // this.router.navigate([''], {relativeTo: this.route})
+  }
+
   onDeleteAlbum(){
     this.mlService.deleteAlbum(this.index);
     this.router.navigate(['/music-list']);
