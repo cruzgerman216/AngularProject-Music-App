@@ -17,7 +17,7 @@ export class DataStorageService{
   }
 
   fetchAlbum(){
-   return this.http.get<Album[]>('https://music-bookmark-5b727-default-rtdb.firebaseio.com/').pipe(
+   return this.http.get<Album[]>('https://music-bookmark-5b727-default-rtdb.firebaseio.com/albums.json').pipe(
       map(albums => {
         return albums.map( album => {
           return {...album, trackList: album.trackList ? album.trackList : []

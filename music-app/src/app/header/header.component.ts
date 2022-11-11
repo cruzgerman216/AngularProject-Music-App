@@ -25,9 +25,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.dataStorageService.storeAlbum();
   }
 
-  // onRetrieve(){
-  //   this.dataStorageService.fetchAlbum().subscribe();
-  // }
+  onRetrieve(){
+    this.dataStorageService.fetchAlbum().subscribe();
+  }
 
   onLogout(){
     this.authService.logout();
