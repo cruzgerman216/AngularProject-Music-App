@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Album } from 'src/app/shared/album.model';
 import { MusicListService } from '../music-list.service';
 
@@ -12,18 +12,18 @@ export class AlbumDetailComponent implements OnInit {
   @Input() album: Album;
   @Input() index: number;
 
-  constructor(private mlService: MusicListService, private router: Router) { }
+  constructor(private mlService: MusicListService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
   }
 
-  onEdit(){
-    // this.router.navigate([''], {relativeTo: this.route})
-  }
+  // onEdit(){
+  //   this.router.navigate(['edit'], {relativeTo: this.route})
+  // }
 
   onDeleteAlbum(){
     this.mlService.deleteAlbum(this.index);
-    this.router.navigate(['/music-list']);
+    this.router.navigate(['/musiclist']);
   }
 
 }

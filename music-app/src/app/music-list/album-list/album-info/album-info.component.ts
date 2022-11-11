@@ -14,6 +14,15 @@ export class AlbumInfoComponent implements OnInit {
 
   constructor(private musicListService: MusicListService, private route: ActivatedRoute, private router: Router) { }
 
+  onEdit(){
+    this.router.navigate(['edit'], {relativeTo: this.route})
+  }
+
+  onDelete(){
+    this.musicListService.deleteAlbum(this.id);
+    this.router.navigate(['/musiclist']);
+  }
+
   ngOnInit(): void {
     this.route.params.subscribe(
       (params: Params) => {
