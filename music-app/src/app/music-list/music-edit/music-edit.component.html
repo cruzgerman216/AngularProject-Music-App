@@ -1,16 +1,16 @@
 <div class="row">
   <div class="col-xs 12">
-    <form (ngSubmit)="onSubmit()" [formGroup]="albumEditForm">
+    <form (ngSubmit)="onSubmit()" [formGroup]="albumEditForm" >
       <div class="row">
-        <div class="col-xs-12">
-          <label for="artist">Artist:</label>
+        <div class="col-xs-12" style="margin-top: 5px;">
+          <label for="artist" >Artist:</label>
           <input
             type="text"
             id="artist"
             class="form-control"
             formControlName="artist">
         </div>
-        <div class="col-xs-12">
+        <div class="col-xs-12" style="margin-top: 10px;">
           <label for="title">Album Title:</label>
           <input
             type="text"
@@ -18,7 +18,7 @@
             class="form-control"
             formControlName="title">
         </div>
-        <div class="col-xs-12">
+        <div class="col-xs-12" style="margin-top: 10px;">
           <label for="genre">Genre:</label>
           <input
             type="text"
@@ -26,7 +26,7 @@
             class="form-control"
             formControlName="genre">
         </div>
-        <div class="col-xs-12">
+        <div class="col-xs-12" style="margin-top: 10px;">
           <label for="rlYear">Release Year(YYYY):</label>
           <input
             type="number"
@@ -37,7 +37,7 @@
             class="form-control"
             placeholder="YYYY">
         </div>
-        <div class="col-xs-12">
+        <div class="col-xs-12" style="margin-top: 10px;">
           <label for="genre">Cover Art:</label>
           <input
             type="text"
